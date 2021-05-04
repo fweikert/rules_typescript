@@ -1,10 +1,8 @@
 ---
-bazel: 2.1.0
 platforms:
-  ubuntu1604:
-    run_targets:
-    - "//:gazelle"
-    - "@nodejs//:yarn"
+  ubuntu1804:
+    shell_commands:
+    - bazel version
     build_targets:
     - "..."
     test_flags:
@@ -12,10 +10,9 @@ platforms:
     - "--test_tag_filters=-browser:chromium-local,-browser:firefox-local"
     test_targets:
     - "..."
-  ubuntu1804:
-    run_targets:
-    - "//:gazelle"
-    - "@nodejs//:yarn"
+  centos7:
+    shell_commands:
+    - bazel version
     build_targets:
     - "..."
     test_flags:
@@ -23,27 +20,4 @@ platforms:
     - "--test_tag_filters=-browser:chromium-local,-browser:firefox-local"
     test_targets:
     - "..."
-  macos:
-    run_targets:
-    - "//:gazelle"
-    - "@nodejs//:yarn"
-    build_targets:
-    - "..."
-    test_flags:
-    # TODO(gregmagolan): chrome & firefox unknown breakage on macos target here; does work locally on mac
-    - "--test_tag_filters=-browser:chromium-local,-browser:firefox-local"
-    test_targets:
-    - "..."
-  windows:
-    run_targets:
-    - "//:gazelle"
-    - "@nodejs//:yarn"
-    build_flags:
-    - "--action_env=PATH"
-    build_targets:
-    - "..."
-    test_flags:
-    - "--action_env=PATH"
-    - "--test_env=PATH"
-    test_targets:
-    - "..."
+ 
